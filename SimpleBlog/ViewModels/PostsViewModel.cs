@@ -4,9 +4,9 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace SimpleBlog.Entities
+namespace SimpleBlog.ViewModels
 {
-    public class Post : IContent
+    public class PostsViewModel
     {
         public int ID { get; set; }
         public string Content { get; set; }
@@ -20,5 +20,6 @@ namespace SimpleBlog.Entities
 
         public string Tags { get; set; }
 
+        public int TotalComments { get; set; }
     }
 }

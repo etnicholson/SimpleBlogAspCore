@@ -14,7 +14,12 @@ namespace SimpleBlog.Data
         {
         }
 
-        public DbSet<Post> posts;
-        public DbSet<Comment> comments;
+
+        public DbSet<Comment> Comments;
+
+        public DbSet<SimpleBlog.Entities.Post> Post { get; set; }
+        public DbSet<SimpleBlog.Entities.Tags> Tags { get; set; }
+
     }
+
 }

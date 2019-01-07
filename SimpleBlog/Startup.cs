@@ -12,6 +12,7 @@ using Microsoft.EntityFrameworkCore;
 using SimpleBlog.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using SimpleBlog.Entities;
 
 namespace SimpleBlog
 {
@@ -39,6 +40,7 @@ namespace SimpleBlog
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<IdentityUser>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddSingleton<IDataRetriver, DataRetriver>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }

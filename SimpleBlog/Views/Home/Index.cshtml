@@ -1,3 +1,18 @@
-﻿@{
+﻿@model SimpleBlog.ViewModels.HomePageViewModel
+
+
+@{
     ViewData["Title"] = "Home Page";
 }
+
+<div>
+    @foreach (var item in Model.Posts)
+    {
+        <h3><a class="link" href='/posts/Details/@item.ID'>@item.Title</a></h3>
+        <h4>@item.Date.ToString("dd/MM/yyyy")</h4>
+        <h5>@item.PreviewText</h5>
+
+
+    }
+
+</div>
