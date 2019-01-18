@@ -8,11 +8,34 @@
 <div>
     @foreach (var item in Model.Posts)
     {
-        <h3><a class="link" href='/posts/Details/@item.ID'>@item.Title</a></h3>
-        <h4>@item.Date.ToString("dd/MM/yyyy")</h4>
-        <h5>@item.PreviewText</h5>
+        <h3><a class="link" href='/content/view/@item.ID'>@item.Title</a></h3>
+
+        <h7>@item.Date.ToString("dd/MM/yyyy")</h7>
+        <hr>
+        <div class="row">
+
+            <div class="col-md-8">
+                @foreach (var i in item.Tags)
+                {
+
+
+                    <a href="/content/searchtag/@i" class="btn btn-info" role="button">@i</a>
+
+
+                }
+            </div>
+            <div class="col-md-4">
+                <button type="button" class="btn btn-secondary"> @item.TotalComments Comments</button>
+               
+            </div>
+        </div>
+        <hr>
+        <p>@item.PreviewText</p>
+        <hr>
+
+
+
 
 
     }
-
-</div>
+        </div>

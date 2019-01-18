@@ -13,6 +13,7 @@ using SimpleBlog.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SimpleBlog.Entities;
+using Npgsql;
 
 namespace SimpleBlog
 {
@@ -36,8 +37,7 @@ namespace SimpleBlog
             });
 
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
+                options.UseNpgsql("Host=localhost;Database=SimpleBlog;Username=melvis;Password=merda86"));
             services.AddDefaultIdentity<IdentityUser>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddSingleton<IDataRetriver, DataRetriver>();
@@ -59,7 +59,7 @@ namespace SimpleBlog
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
 

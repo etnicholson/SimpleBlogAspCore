@@ -22,8 +22,21 @@
     <partial name="_CookieConsentPartial" />
 
 <div class="container body-content">
-    <h1>Erico's Blog</h1>
-    @RenderBody()
+    <a href="/"><h1>Erico's Blog</h1></a>
+    <div class="row">
+
+        <div class="col-md-10">@RenderBody()</div>
+        <div class="col-md-2">
+            <form asp-controller="Content" asp-action="Search" method="post">
+                <input name="text"/>
+                <button class="btn-default" type="submit">Search</button>
+            </form>
+            
+
+        </div>
+
+    </div>
+    <div></div>
     <hr/>
     <footer>
         <p>&copy; 2019 - SimpleBlog</p>

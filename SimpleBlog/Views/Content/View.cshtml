@@ -1,0 +1,74 @@
+﻿@model SimpleBlog.ViewModels.ContentViewModel
+
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div>
+
+        <h3>@Model.Title</h3>
+
+        <h7>@Model.Date.ToString("dd/MM/yyyy")</h7>
+        <hr>
+            @foreach (var i in Model.Tags)
+             {
+
+
+                 <a href="/content/searchtag/@i" class="btn btn-info" role="button">@i</a>
+
+             }
+    <hr>
+    <div>@Model.Content</div>
+    
+    
+    <hr/>
+    
+    
+
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Comment">
+
+
+                    <input name="id" class="form-control" value="@Model.Id" style="visibility:hidden;"/>
+
+
+
+                <div class="form-group">
+                    Name
+                    <input name="name" class="form-control" />
+                </div>
+                <div class="form-group">
+                    Comment
+                    <input name="comment" class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Comment" class="btn btn-default" />
+                </div>
+            </form>
+        </div>
+    </div>
+        <hr/>
+    <h2>Comments</h2>
+    
+    @if (@Model.Comments.Count > 0)
+    {
+        @foreach (var c in Model.Comments)
+         {
+            
+            <div><b>@c.Author</b></div>
+             <div>@c.Content</div>
+             <hr/>
+         }
+    }
+    else
+    {
+        <h5>No comments yet :(</h5>
+    }
+
+
+
+
+</div>

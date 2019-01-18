@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using SimpleBlog.Entities;
 
 namespace SimpleBlog.ViewModels
 {
@@ -18,7 +19,7 @@ namespace SimpleBlog.ViewModels
 
         public string Title { get; set; }
 
-        public string Tags { get; set; }
+        public List<string> Tags { get; set; }
 
         public int TotalComments { get; set; }
     }
