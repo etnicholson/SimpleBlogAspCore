@@ -37,7 +37,7 @@ namespace SimpleBlog
             });
 
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseNpgsql("Host=localhost;Database=SimpleBlog;Username=melvis;Password=merda86"));
+                options.UseNpgsql("DB INFO"));
             services.AddDefaultIdentity<IdentityUser>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddSingleton<IDataRetriver, DataRetriver>();
